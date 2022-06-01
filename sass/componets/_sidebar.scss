@@ -28,11 +28,13 @@
       color: $color--white;
       font-size: 2.5rem;
       font-family: $font--nastaliq;
+      text-shadow: 0 1rem 1rem rgba(black, 0.5); // !!!
     }
     &-h2 {
       color: $color--white;
       font-size: 3rem;
       font-family: $font--header;
+      text-shadow: 0 1rem 1rem rgba(black, 0.5); //!!!
     }
     &-flag {
       margin-top: 2rem;

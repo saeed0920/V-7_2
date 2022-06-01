@@ -1,0 +1,150 @@
+.main-section {
+  grid-row: 2 / -1;
+  grid-column: 2 / 3;
+  display: grid;
+  grid-template-columns: 20rem 1fr;
+  grid-template-rows: 1fr 5rem;
+  &__sidebar {
+    grid-row: 1 / -2;
+    grid-column: 1 / 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 2rem;
+
+    &--selector {
+      text-align: right;
+      width: 90%;
+      padding: 2rem 2rem;
+      font-size: 2rem;
+      font-family: $font--text;
+      color: $color--gray-text;
+      border-bottom: 1px solid $color--gray-main;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+      z-index: 100;
+      &::before {
+        border-radius: 2px;
+        content: "";
+        position: absolute;
+        z-index: -1;
+        width: 3px;
+        height: 100%;
+        top: 0;
+        right: 0;
+        background-color: rgba(0, 87, 210, 0.73);
+        transform: scaley(0);
+        transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
+          background-color 0.1s;
+      }
+      &:hover {
+        transform: scalex(1.1) translateX(-2rem);
+        color: $color--white;
+        &::before {
+          transform: scaley(1);
+          width: 100%;
+        }
+      }
+    }
+    &:first-child {
+      border-top: 1px solid $color--gray-main;
+    }
+  }
+  &__items {
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+    background-color: $color--gray-main;
+    padding: 2rem;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 2rem;
+
+    // * containers
+    &__container {
+      // container main
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0.5rem 1rem rgba(black, 0.15);
+      border-radius: 4px;
+      cursor: pointer;
+      background-color: $color--white;
+      transition: all 0.2s;
+
+      // * element of containers
+      &__icon {
+        width: 10rem;
+        height: 10rem;
+        fill: $color--blue-main;
+      }
+      &__text {
+        margin-top: 1rem;
+        font-size: 2.5rem;
+        font-family: $font--text;
+        color: $color--gray-text;
+      }
+    }
+    .hover-active-container {
+      &:hover {
+        box-shadow: 0 1rem 2rem rgba(black, 0.4);
+        transform: scale(1.05);
+        background-color: $color--blue-main;
+
+        & > * {
+          color: white;
+          fill: white;
+        }
+      }
+    }
+    // custom container of secctions
+    .container {
+      // section 1 and 2 and 3 and 4
+      &-1 {
+      }
+      &-2 {
+      }
+      &-3 {
+      }
+      &-4 {
+      }
+    }
+
+    .container--not-active {
+      cursor: auto;
+      opacity: 0.5;
+      &__icon {
+        width: 10rem;
+        height: 10rem;
+        fill: $color--gray-text;
+      }
+      &__text {
+        margin-top: 1rem;
+        font-size: 2.5rem;
+        font-family: $font--text;
+        color: $color--gray-text;
+      }
+    }
+    .container--fix {
+      &__icon {
+        width: 10rem;
+        height: 10rem;
+        fill: $color--blue-main;
+      }
+      &__text {
+        margin-top: 1rem;
+        font-size: 2.5rem;
+        font-family: $font--text;
+        color: $color--gray-text;
+      }
+    }
+  }
+
+  span {
+    grid-row: 2 / -1;
+    grid-column: 1 / -1;
+  }
+}
