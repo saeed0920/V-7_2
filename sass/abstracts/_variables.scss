@@ -1,0 +1,59 @@
+// // color
+// $color-img-pink-light: #d66d75;
+// $color-img-pink-white: #e29587;
+// $color-white: #fff;
+// $color-white-light: #f7f7f7;
+// $color-pink-light: #fd5b68;
+// $color-pink-white: #f18b79;
+// $color-red: #ff0000;
+// $color-text-white: #f7f7f769;
+// $color-black: black;
+// $color-yellow-light: #f5cd79;
+// $color-yellow-white: #f7d794;
+// $color-quan: aqua;
+// $color-quan-light: #3dc1d3;
+// $color-quan-white: #63cdda;
+// $color-green-white: #7bed9f;
+// $color-green-light: #2ed573;
+// $color-white-high: #ffffff;
+// $color-black-dark: #999;
+// // grid
+// $space-row: 0.5rem;
+
+// // font
+// $default-font-size: 1rem;
+
+// // shadow
+// $box-shodow-015: rgba($color-black, 0.15);
+// $box-shadow-rem-014: 0rem 1rem 4rem;
+
+// // border radios
+// $border-reduis-3px: 3px;
+
+// variables css
+:root {
+  --white: rgb(255, 255, 255);
+  --blue-main: rgb(0, 87, 210);
+  --blue-dark: rgb(29, 47, 96);
+  --black: rgb(0, 0, 0);
+  --gray-main: rgb(238, 239, 239);
+  --gray-text: rgb(99, 102, 111);
+  --gray-light: rgb(229, 229, 229);
+}
+
+// variables sass
+$color--white: var(--white);
+$color--blue-main: var(--blue-main);
+$color--blue-dark: var(--blue-dark);
+$color--black: var(--black);
+$color--gray-main: var(--gray-main);
+$color--gray-text: var(--gray-text);
+$color--gray-light: var(--gray-light);
+$color--red: rgb(255, 0, 0);
+$color--green: rgb(0, 128, 0);
+
+// fonts
+$font--main: font-main;
+$font--header: font-header;
+$font--text: font-text;
+$font--nastaliq: font-nastaliq;
