@@ -21,6 +21,10 @@
   src: url(../fonts/IranNastaliq/IranNastaliq.ttf);
   font-family: font-nastaliq;
 }
+@font-face {
+  src: url(../fonts/Suls-mir-emad/Suls.ttf);
+  font-family: font-nastaliq-2;
+}
 
 html {
   font-size: 62.5%;
@@ -31,6 +35,10 @@ body {
   direction: rtl;
   font-family: sans-serif;
   min-height: 100vh;
+
+  display: grid;
+  grid-template-rows: 15rem 3fr;
+  grid-template-columns: 1fr 7fr;
 }
 
 ::selection {

@@ -1,0 +1,106 @@
+.sidebar {
+  grid-row: 1 / -1;
+  grid-column: 1 / 2;
+
+  display: grid;
+  grid-template-rows: 1fr [header-start] max-content [header-end] 0.5fr [details-start] max-content [details-end] 3fr [date-start] max-content [date-end];
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 87, 210, 0.7),
+      rgba(0, 87, 210, 0.7)
+    ),
+    // !!!!! fix color
+    url(../../img/sidebar-img.jpg);
+  box-shadow: 0 2rem 1rem 1rem rgba(black, 0.2); //!!!!
+  background-size: cover;
+  background-position: left;
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    grid-row: header-start / header-end;
+    &-img {
+      width: 5rem;
+      height: 5rem;
+    }
+    &-h3 {
+      color: $color--white;
+      font-size: 2.5rem;
+      font-family: $font--nastaliq;
+    }
+    &-h2 {
+      color: $color--white;
+      font-size: 3rem;
+      font-family: $font--header;
+    }
+    &-flag {
+      margin-top: 2rem;
+      width: 3rem;
+      height: 2rem;
+    }
+  }
+  &__details {
+    grid-row: details-start / details-end;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    &-img--user {
+      width: 8rem;
+      border-radius: 50%;
+      border: 2px solid $color--white;
+    }
+    &-textbox {
+      font-size: 1.5rem;
+      line-height: 4rem;
+      color: rgba(#ffff, 0.8); //!!!
+      &-p {
+        &:not(:last-child) {
+          border-bottom: 1px solid $color--white;
+        }
+        font-family: $font--text;
+      }
+    }
+  }
+  &__date {
+    grid-row: date-start / date-end;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: $color--white;
+    & > * {
+      font-size: 1.8rem;
+      font-family: $font--text;
+      text-align: center;
+    }
+    & > *:not(:last-child) {
+      width: 10rem;
+      border-bottom: 1px solid $color--white;
+      padding: 0.5rem;
+    }
+    &-p {
+    }
+    &-box {
+      display: flex;
+      justify-content: space-between;
+
+      span {
+        height: 100%;
+        width: 1px;
+        background-color: $color--white;
+      }
+      &-hr {
+      }
+      &-min {
+      }
+    }
+    &-date {
+    }
+    &-lastlogin {
+      color: $color--white;
+      padding-top: 0.5rem;
+    }
+  }
+}

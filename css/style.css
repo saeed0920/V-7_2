@@ -53,6 +53,10 @@ big-desktop
   src: url(../fonts/IranNastaliq/IranNastaliq.ttf);
   font-family: font-nastaliq; }
 
+@font-face {
+  src: url(../fonts/Suls-mir-emad/Suls.ttf);
+  font-family: font-nastaliq-2; }
+
 html {
   font-size: 62.5%;
   box-sizing: border-box; }
@@ -60,7 +64,10 @@ html {
 body {
   direction: rtl;
   font-family: sans-serif;
-  min-height: 100vh; }
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 15rem 3fr;
+  grid-template-columns: 1fr 7fr; }
 
 /* uniti css */
 .font-sml {
@@ -159,3 +166,120 @@ body {
 
 .font-text {
   font-family: font-text; }
+
+.navbar {
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+  border-bottom: 1px solid var(--gray-text);
+  box-shadow: 0 2rem 2rem rgba(var(--black), 0.1);
+  background-color: var(--white);
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
+  .navbar__header-box {
+    margin-right: -2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    justify-self: flex-start; }
+  .navbar__img {
+    border-radius: 50%;
+    width: 8rem;
+    height: 8rem; }
+  .navbar__header-1 {
+    margin-right: 3rem;
+    font-size: 3rem;
+    font-family: font-header; }
+  .navbar__header-2 {
+    font-size: 2rem;
+    font-family: font-nastaliq-2;
+    color: var(--blue-main); }
+  .navbar__icon-box {
+    width: 27%;
+    src: url(../../img/SVG/sprite.svg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+    .navbar__icon-box__icon {
+      width: 3rem;
+      height: 3rem;
+      fill: var(--blue-main);
+      cursor: pointer;
+      transition: all 0.2s; }
+      .navbar__icon-box__icon:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); }
+
+.sidebar {
+  grid-row: 1 / -1;
+  grid-column: 1 / 2;
+  display: grid;
+  grid-template-rows: 1fr [header-start] max-content [header-end] 0.5fr [details-start] max-content [details-end] 3fr [date-start] max-content [date-end];
+  background-image: linear-gradient(to right, rgba(0, 87, 210, 0.7), rgba(0, 87, 210, 0.7)), url(../../img/sidebar-img.jpg);
+  box-shadow: 0 2rem 1rem 1rem rgba(0, 0, 0, 0.2);
+  background-size: cover;
+  background-position: left; }
+  .sidebar__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    grid-row: header-start / header-end; }
+    .sidebar__header-img {
+      width: 5rem;
+      height: 5rem; }
+    .sidebar__header-h3 {
+      color: var(--white);
+      font-size: 2.5rem;
+      font-family: font-nastaliq; }
+    .sidebar__header-h2 {
+      color: var(--white);
+      font-size: 3rem;
+      font-family: font-header; }
+    .sidebar__header-flag {
+      margin-top: 2rem;
+      width: 3rem;
+      height: 2rem; }
+  .sidebar__details {
+    grid-row: details-start / details-end;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+    .sidebar__details-img--user {
+      width: 8rem;
+      border-radius: 50%;
+      border: 2px solid var(--white); }
+    .sidebar__details-textbox {
+      font-size: 1.5rem;
+      line-height: 4rem;
+      color: rgba(255, 255, 255, 0.8); }
+      .sidebar__details-textbox-p {
+        font-family: font-text; }
+        .sidebar__details-textbox-p:not(:last-child) {
+          border-bottom: 1px solid var(--white); }
+  .sidebar__date {
+    grid-row: date-start / date-end;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--white); }
+    .sidebar__date > * {
+      font-size: 1.8rem;
+      font-family: font-text;
+      text-align: center; }
+    .sidebar__date > *:not(:last-child) {
+      width: 10rem;
+      border-bottom: 1px solid var(--white);
+      padding: 0.5rem; }
+    .sidebar__date-box {
+      display: flex;
+      justify-content: space-between; }
+      .sidebar__date-box span {
+        height: 100%;
+        width: 1px;
+        background-color: var(--white); }
+    .sidebar__date-lastlogin {
+      color: var(--white);
+      padding-top: 0.5rem; }
