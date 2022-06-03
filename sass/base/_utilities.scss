@@ -104,3 +104,28 @@
 .font-text {
   font-family: $font--text;
 }
+.hide {
+  display: none !important;
+}
+
+.selector-active {
+  background: var(--blue-main) !important;
+  width: 95% !important;
+  text-align: center !important;
+  color: white !important;
+  box-shadow: 0 1rem 0.5rem rgba(black, 0.15);
+  transform: scale(1) translatex(-1rem) !important;
+  text-shadow: 0 0.5rem 1rem rgba(black, 0.3);
+}
+.fix-sidebar {
+  background-color: $color--gray-main !important;
+  pointer-events: none !important;
+  margin-top: 0 !important;
+  display: none;
+  & * {
+    display: none !important;
+  }
+}
+.background-gray-main {
+  background: $color--gray-main !important;
+}

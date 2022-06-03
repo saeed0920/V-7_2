@@ -1,0 +1,13 @@
+.chat {
+  &-container {
+    background-color: red;
+    &-box {
+      &__header {
+      }
+      &__icon {
+      }
+    }
+    &-inputs {
+    }
+  }
+}
