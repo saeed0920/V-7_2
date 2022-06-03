@@ -42,10 +42,16 @@
       &:hover {
         transform: scalex(1.1) translateX(-2rem);
         color: $color--white;
+
         &::before {
           transform: scaley(1);
           width: 100%;
         }
+      }
+      &:active,
+      &:focus {
+        transform: translateX(-1.5rem);
+        box-shadow: 0 0.5rem 1rem rgba(black, 0.25);
       }
     }
     &:first-child {
@@ -151,6 +157,5 @@
   span {
     grid-row: 2 / -1;
     grid-column: 1 / -1;
-    background-color: $color--white;
   }
 }

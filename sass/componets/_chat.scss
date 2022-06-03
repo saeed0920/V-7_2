@@ -1,13 +1,170 @@
 .chat {
-  &-container {
-    background-color: red;
-    &-box {
-      &__header {
-      }
-      &__icon {
+  position: fixed;
+  width: 5rem;
+  height: 5rem;
+  bottom: 6rem;
+  right: 27rem;
+
+  &::after {
+    content: "1";
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: -1rem;
+    right: 0;
+    width: 2rem;
+    height: 2rem;
+    z-index: 101;
+    border-radius: 50%;
+    color: $color--white;
+    background-color: #e1275f;
+  }
+
+  transition: all 0.4s;
+  &__background {
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 2rem;
+    z-index: 99;
+    @supports (backdrop-filter: none) or (-webkit-backdrop-filter: none) {
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+    background: linear-gradient(
+      to left,
+      rgba(#1c92d2, 0.7),
+      rgba(#f2fcfe, 0.5)
+    );
+    transition: all 0.2s ease-out;
+    backface-visibility: hidden;
+    visibility: hidden;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    grid-template-rows: repeat(4, 1fr);
+    .message {
+      grid-column: 2 / 4;
+      grid-row: 1 / 2;
+      display: grid;
+      place-items: center;
+
+      &__box {
+        color: $color--blue-dark;
+        box-shadow: 0 0.2rem 0.5rem rgba(black, 0.1);
+        font-family: $font--text;
+        font-size: 2rem;
+        text-align: center;
+        background: linear-gradient(
+          to right,
+          rgba(#2f80ed, 0.5),
+          rgba(#56ccf2, 0.5)
+        );
+        padding: 0.5rem 4rem;
+        border-radius: 4rem;
+        // @supports (backdrop-filter: none) or (-webkit-backdrop-filter: none) {
+        //   backdrop-filter: blur(4px);
+        //   -webkit-backdrop-filter: blur(4px);
+        // }
+        position: relative;
+        transition: all 0.1s;
+        &::after {
+          content: "۲۲:۳۰";
+          position: absolute;
+          top: 50%;
+          right: -2rem;
+          transform: translatey(-50%);
+          visibility: hidden;
+          pointer-events: none;
+          transition: all 0.2s;
+          color: $color--gray-text;
+        }
+        &:hover::after {
+          visibility: visible;
+          pointer-events: all;
+          right: -5rem;
+        }
       }
     }
-    &-inputs {
+    &__chatbox {
+      grid-row: 4 / 5;
+      grid-column: 1 / -1;
+
+      .textbox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &__icon {
+          cursor: pointer;
+          margin-right: 1rem;
+          padding: 0.5rem;
+          width: 4rem;
+          height: 4rem;
+          fill: $color--blue-dark;
+          border-radius: 50%;
+          background-color: $color--white;
+          transition: all 0.2s;
+          &:hover {
+            background-color: $color--blue-dark;
+            fill: $color--white;
+            transform: scale(1.05);
+          }
+        }
+        &__input {
+          width: 60%;
+          border: none;
+          outline: none;
+          padding: 0.5rem 1.5rem;
+          border-radius: 2rem;
+          font-size: 2rem;
+          font-family: $font--text;
+          transition: all 0.2s;
+          &:active,
+          &:focus {
+            width: 70%;
+          }
+        }
+      }
     }
+  }
+  &__label {
+    box-shadow: 0 1rem 1rem rgba(black, 0.15);
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transition: all 0.2s;
+    background-color: $color--blue-main;
+    display: grid;
+    place-items: center;
+    transition: all 0.4 ease-out;
+    z-index: 100;
+    &--icon {
+      fill: $color--white;
+      width: 80%;
+      height: 80%;
+    }
+    &:hover {
+      transform: scale(1.1);
+    }
+    &:active,
+    &:focus {
+      transform: scale(0.98);
+      box-shadow: 0 0.5rem 0.5rem rgba(black, 0.25);
+    }
+  }
+
+  &-checkbox:checked ~ &__background {
+    width: 35rem;
+    height: 25rem;
+    visibility: visible;
+    transition: all 0.3s;
+    box-shadow: 0 1rem 0.5rem rgba(black, 0.15);
+  }
+  &-checkbox {
+    display: none;
   }
 }

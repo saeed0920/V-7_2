@@ -69,6 +69,10 @@ body {
   grid-template-rows: 15rem 3fr;
   grid-template-columns: 1fr 7fr; }
 
+::selection {
+  color: var(--white);
+  background-color: var(--blue-main); }
+
 /* uniti css */
 .font-sml {
   font-size: smaller; }
@@ -353,6 +357,9 @@ body {
         .main-section__sidebar--selector:hover::before {
           transform: scaley(1);
           width: 100%; }
+      .main-section__sidebar--selector:active, .main-section__sidebar--selector:focus {
+        transform: translateX(-1.5rem);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25); }
     .main-section__sidebar:first-child {
       border-top: 1px solid var(--gray-main); }
   .main-section__items {
@@ -416,8 +423,136 @@ body {
       color: var(--gray-text); }
   .main-section span {
     grid-row: 2 / -1;
-    grid-column: 1 / -1;
-    background-color: var(--white); }
+    grid-column: 1 / -1; }
 
-.chat-container {
-  background-color: red; }
+.chat {
+  position: fixed;
+  width: 5rem;
+  height: 5rem;
+  bottom: 6rem;
+  right: 27rem;
+  transition: all 0.4s; }
+  .chat::after {
+    content: "1";
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: -1rem;
+    right: 0;
+    width: 2rem;
+    height: 2rem;
+    z-index: 101;
+    border-radius: 50%;
+    color: var(--white);
+    background-color: #e1275f; }
+  .chat__background {
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 2rem;
+    z-index: 99;
+    background: linear-gradient(to left, rgba(28, 146, 210, 0.7), rgba(242, 252, 254, 0.5));
+    transition: all 0.2s ease-out;
+    backface-visibility: hidden;
+    visibility: hidden;
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    grid-template-rows: repeat(4, 1fr); }
+    @supports (backdrop-filter: none) or (-webkit-backdrop-filter: none) {
+      .chat__background {
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px); } }
+    .chat__background .message {
+      grid-column: 2 / 4;
+      grid-row: 1 / 2;
+      display: grid;
+      place-items: center; }
+      .chat__background .message__box {
+        color: var(--blue-dark);
+        box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
+        font-family: font-text;
+        font-size: 2rem;
+        text-align: center;
+        background: linear-gradient(to right, rgba(47, 128, 237, 0.5), rgba(86, 204, 242, 0.5));
+        padding: 0.5rem 4rem;
+        border-radius: 4rem;
+        position: relative;
+        transition: all 0.1s; }
+        .chat__background .message__box::after {
+          content: "۲۲:۳۰";
+          position: absolute;
+          top: 50%;
+          right: -2rem;
+          transform: translatey(-50%);
+          visibility: hidden;
+          pointer-events: none;
+          transition: all 0.2s;
+          color: var(--gray-text); }
+        .chat__background .message__box:hover::after {
+          visibility: visible;
+          pointer-events: all;
+          right: -5rem; }
+    .chat__background__chatbox {
+      grid-row: 4 / 5;
+      grid-column: 1 / -1; }
+      .chat__background__chatbox .textbox {
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+        .chat__background__chatbox .textbox__icon {
+          cursor: pointer;
+          margin-right: 1rem;
+          padding: 0.5rem;
+          width: 4rem;
+          height: 4rem;
+          fill: var(--blue-dark);
+          border-radius: 50%;
+          background-color: var(--white);
+          transition: all 0.2s; }
+          .chat__background__chatbox .textbox__icon:hover {
+            background-color: var(--blue-dark);
+            fill: var(--white);
+            transform: scale(1.05); }
+        .chat__background__chatbox .textbox__input {
+          width: 60%;
+          border: none;
+          outline: none;
+          padding: 0.5rem 1.5rem;
+          border-radius: 2rem;
+          font-size: 2rem;
+          font-family: font-text;
+          transition: all 0.2s; }
+          .chat__background__chatbox .textbox__input:active, .chat__background__chatbox .textbox__input:focus {
+            width: 70%; }
+  .chat__label {
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transition: all 0.2s;
+    background-color: var(--blue-main);
+    display: grid;
+    place-items: center;
+    transition: all 0.4 ease-out;
+    z-index: 100; }
+    .chat__label--icon {
+      fill: var(--white);
+      width: 80%;
+      height: 80%; }
+    .chat__label:hover {
+      transform: scale(1.1); }
+    .chat__label:active, .chat__label:focus {
+      transform: scale(0.98);
+      box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.25); }
+  .chat-checkbox:checked ~ .chat__background {
+    width: 35rem;
+    height: 25rem;
+    visibility: visible;
+    transition: all 0.3s;
+    box-shadow: 0 1rem 0.5rem rgba(0, 0, 0, 0.15); }
+  .chat-checkbox {
+    display: none; }

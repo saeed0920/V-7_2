@@ -23,9 +23,6 @@
         <svg class="navbar__icon-box__icon home-icon">
           <use xlink:href="./img/SVG/sprite.svg#icon-home-outline"></use>
         </svg>
-        <svg class="navbar__icon-box__icon chat-icon">
-          <use xlink:href="./img/SVG/sprite.svg#icon-messages"></use>
-        </svg>
         <svg class="navbar__icon-box__icon">
           <use xlink:href="./img/SVG/sprite.svg#icon-download"></use>
         </svg>
@@ -466,19 +463,27 @@
       <!-- section chat -->
     </section>
     <div class="chat">
-      <div class="chat-container"> 
-         <div class="chat-container-box">
-          <h1 class="chat-container-box__header">سامانه چت آنلاین</h1>
-          <svg class="chat-container-box__icon">
-            <use xlink:href="./img/SVG/sprite.svg#icon-messages"></use>
-          </svg>     
+      <input type="checkbox"  id="check" class="chat-checkbox">
+      <div class="chat__background">
+        <div class="message">
+          <div class="message__box">سلام</div>
+        
         </div>
-      
-        <div class="chat-container-inputs">
-          <input type="text">
-          <input type="text">
+        <div class="chat__background__chatbox">
+
+          <div class="textbox">
+            <input class="textbox__input" type="text"  id="send" placeholder="اینجابنویسید">
+              <svg class="textbox__icon">
+                <use xlink:href="./img/SVG/sprite.svg#icon-send"></use>
+              </svg>
+          </div>
         </div>
       </div>
+      <label for="check" class="chat__label">
+        <svg class="chat__label--icon">
+          <use xlink:href="./img/SVG/sprite.svg#icon-message"></use>
+        </svg>
+      </label>
     </div>
     <script src="./index.js"></script>
   </body>
