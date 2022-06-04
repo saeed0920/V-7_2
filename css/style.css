@@ -483,7 +483,7 @@ body {
     grid-gap: 2.5rem;
     overflow-y: scroll;
     height: 70rem; }
-    @media only screen and (max-width: 19.375em) {
+    @media only screen and (max-width: 31.25em) {
       .main-section__items {
         overflow-y: auto;
         height: auto; } }
