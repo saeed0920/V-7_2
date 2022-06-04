@@ -86,6 +86,9 @@ body {
   display: grid;
   grid-template-rows: 15rem 3fr;
   grid-template-columns: 1fr 7fr; }
+  @media only screen and (max-width: 50em) {
+    body {
+      height: 100vh; } }
   @media only screen and (max-width: 22.5em) {
     body {
       grid-template-rows: 18rem 3fr; } }
@@ -244,6 +247,9 @@ body {
     @media only screen and (max-width: 68.75em) {
       .sidebar__header {
         display: none; } }
+    @media only screen and (max-width: 50em) {
+      .sidebar__header {
+        display: none; } }
     .sidebar__header-img {
       width: 5rem;
       height: 5rem; }
@@ -272,24 +278,14 @@ body {
         flex-direction: row;
         width: 30%;
         justify-content: space-around; } }
-    @media only screen and (max-width: 46.875em) {
+    @media only screen and (max-width: 50em) {
       .sidebar__details {
-        width: 42%; } }
-    @media only screen and (max-width: 31.25em) {
-      .sidebar__details {
-        width: 50%; } }
-    @media only screen and (max-width: 22.5em) {
-      .sidebar__details {
-        width: 55%; } }
+        flex-direction: column;
+        width: auto; } }
     .sidebar__details-img--user {
       width: 8rem;
       border-radius: 50%;
       border: 2px solid var(--white); }
-      @media only screen and (max-width: 22.5em) {
-        .sidebar__details-img--user {
-          border: 1px solid var(--white);
-          width: 5rem;
-          height: 5rem; } }
     .sidebar__details-textbox {
       font-size: 1.5rem;
       line-height: 4rem;
@@ -753,11 +749,22 @@ body {
   width: 30vw;
   right: 0;
   bottom: 0;
-  height: 100%;
+  height: max-content;
   top: -2rem;
   background-color: var(--blue-dark); }
   .show-sidebar:first-child {
     border: none; }
+
+.show-details {
+  display: grid;
+  grid-template-rows: 1fr [header-start] max-content [header-end] 0.5fr [details-start] max-content [details-end] 3fr [date-start] max-content [date-end];
+  position: absolute;
+  z-index: 999;
+  width: 30vw;
+  top: 44rem;
+  right: 0;
+  height: 50%;
+  background: var(--blue-dark); }
 
 .blur {
   filter: blur(4px); }

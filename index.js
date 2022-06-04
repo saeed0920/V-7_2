@@ -60,6 +60,7 @@ const getOut = function () {
     toggleClass(sideBarIcon, "remove-span");
     toggleClass(sideBar, "show-sidebar");
     toggleClass(mainSectionItems, "blur");
+    toggleClass(details, "show-details");
   } else {
     console.warn("not active");
   }
@@ -122,3 +123,15 @@ homeIcon.addEventListener("click", function () {
 
 // if user click icon sidebar
 sideBarIcon.addEventListener("click", getOut);
+mainSectionItems.addEventListener("click", function () {
+  if (window.screen.width <= 800) {
+    removeClass(sideBarIcon, "rotade-after");
+    removeClass(sideBarIcon, "rotade-before");
+    removeClass(sideBarIcon, "remove-span");
+    removeClass(sideBar, "show-sidebar");
+    removeClass(mainSectionItems, "blur");
+    removeClass(details, "show-details");
+  } else {
+    console.warn("not active");
+  }
+});

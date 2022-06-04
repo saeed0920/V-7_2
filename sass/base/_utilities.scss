@@ -146,12 +146,24 @@
   width: 30vw;
   right: 0;
   bottom: 0;
-  height: 100%;
+  height: max-content;
   top: -2rem;
   &:first-child {
     border: none;
   }
   background-color: $color--blue-dark;
+}
+
+.show-details {
+  display: grid;
+  grid-template-rows: 1fr [header-start] max-content [header-end] 0.5fr [details-start] max-content [details-end] 3fr [date-start] max-content [date-end];
+  position: absolute;
+  z-index: 999;
+  width: 30vw;
+  top: 44rem;
+  right: 0;
+  height: 50%;
+  background: $color--blue-dark;
 }
 .blur {
   filter: blur(4px);

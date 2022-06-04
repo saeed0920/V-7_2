@@ -29,6 +29,9 @@
     @include res(1100) {
       display: none;
     }
+    @include res(800) {
+      display: none;
+    }
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -64,15 +67,19 @@
       width: 30%;
       justify-content: space-around;
     }
-    @include res(750) {
-      width: 42%;
+    @include res(800) {
+      flex-direction: column;
+      width: auto;
     }
-    @include res(500) {
-      width: 50%;
-    }
-    @include res(360) {
-      width: 55%;
-    }
+    // @include res(750) {
+    //   width: 42%;
+    // }
+    // @include res(500) {
+    //   width: 50%;
+    // }
+    // @include res(360) {
+    //   width: 55%;
+    // }
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -81,11 +88,11 @@
       width: 8rem;
       border-radius: 50%;
       border: 2px solid $color--white;
-      @include res(360) {
-        border: 1px solid $color--white;
-        width: 5rem;
-        height: 5rem;
-      }
+      // @include res(360) {
+      //   border: 1px solid $color--white;
+      //   width: 5rem;
+      //   height: 5rem;
+      // }
     }
     &-textbox {
       font-size: 1.5rem;
