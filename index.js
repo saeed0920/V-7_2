@@ -34,7 +34,10 @@ const itemsNotActive = selectElementAll(".container--not-active");
 const itemsFix = selectElement(".container--fix");
 
 const homeIcon = selectElement(".home-icon");
-const chatIcon = selectElement(".chat-icon");
+const sideBarIcon = selectElement(".icon-sidebar");
+const sideBar = selectElement(".main-section__sidebar");
+const details = selectElement(".sidebar");
+const mainSectionItems = selectElement(".main-section__items");
 // function
 const addClass = function (nameElement, nameClass) {
   nameElement.classList.add(nameClass);
@@ -44,6 +47,23 @@ const removeClass = function (nameElement, nameClass) {
   nameElement.classList.remove(nameClass);
 };
 
+const toggleClass = function (nameElement, nameClass) {
+  nameElement.classList.toggle(nameClass);
+};
+
+// 800px width and if user click selectors or
+const getOut = function () {
+  console.log(window.screen.width);
+  if (window.screen.width <= 800) {
+    toggleClass(sideBarIcon, "rotade-after");
+    toggleClass(sideBarIcon, "rotade-before");
+    toggleClass(sideBarIcon, "remove-span");
+    toggleClass(sideBar, "show-sidebar");
+    toggleClass(mainSectionItems, "blur");
+  } else {
+    console.warn("not active");
+  }
+};
 //setup default
 const sets = new Set();
 for (const [x, items] of Object.entries(selectors)) {
@@ -85,6 +105,7 @@ for (let i = 1; i <= 4; i++) {
       removeClass(items, "hide");
     }
     //
+    getOut();
     sets.add(`${i}`);
   });
 }
@@ -96,4 +117,8 @@ homeIcon.addEventListener("click", function () {
   removeClass(document.querySelector(".main-section__sidebar"), "fix-sidebar");
   removeClass(document.querySelector(".main-section"), "background-gray-main");
   setup();
+  getOut();
 });
+
+// if user click icon sidebar
+sideBarIcon.addEventListener("click", getOut);

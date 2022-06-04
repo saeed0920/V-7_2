@@ -8,6 +8,9 @@
     align-items: center;
     justify-content: space-evenly;
   }
+  @include res(800) {
+    display: none;
+  }
   display: grid;
   grid-template-rows: 1fr [header-start] max-content [header-end] 0.5fr [details-start] max-content [details-end] 3fr [date-start] max-content [date-end];
   background-image: linear-gradient(
@@ -21,6 +24,7 @@
   background-size: cover;
   background-position: left;
   padding: 1rem;
+
   &__header {
     @include res(1100) {
       display: none;

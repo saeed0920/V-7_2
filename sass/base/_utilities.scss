@@ -115,6 +115,10 @@
   box-shadow: 0 1rem 0.5rem rgba(black, 0.15);
   transform: scale(1) translatex(-1rem) !important;
   text-shadow: 0 0.5rem 1rem rgba(black, 0.3);
+
+  @include res(800) {
+    width: 100% !important;
+  }
   @include res(500) {
     box-shadow: 0 0.7rem 0.5rem rgba(black, 0.15);
     transform: scale(1) translatex(0) !important;
@@ -131,4 +135,24 @@
 }
 .background-gray-main {
   background: $color--gray-main !important;
+}
+.show-sidebar {
+  // width: 100;
+  // visibility: visible;
+  // pointer-events: all;
+  position: relative;
+  display: block;
+  z-index: 999;
+  width: 30vw;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  top: -2rem;
+  &:first-child {
+    border: none;
+  }
+  background-color: $color--blue-dark;
+}
+.blur {
+  filter: blur(4px);
 }

@@ -15,6 +15,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+
   &__header-box {
     margin-right: -2rem;
     display: flex;
@@ -52,24 +53,24 @@
     }
   }
   &__icon-box {
-    width: 27%;
+    width: 25%;
     src: url(../../img/SVG/sprite.svg);
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     @include res(800) {
-      width: 80%;
+      width: 50%;
       padding: 1rem;
     }
     @include res(360) {
-      width: 100%;
+      width: 60%;
       padding-bottom: 4rem;
     }
 
     &__icon {
-      width: 3rem;
-      height: 3rem;
+      width: 4rem;
+      height: 4rem;
       fill: $color--blue-main;
       cursor: pointer;
       transition: all 0.2s;
@@ -78,5 +79,71 @@
         box-shadow: 0 0.5rem 1rem rgba(black, 0.1);
       }
     }
+  }
+}
+
+// icon-sidebar if max-width 800px
+.icon-sidebar {
+  display: none;
+
+  @include res(800) {
+    width: 4rem;
+    height: 4rem;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 2rem 2rem rgba(black, 0.1);
+    background-color: $color--blue-main;
+  }
+  span {
+    @include res(800) {
+      position: relative;
+      background-color: $color--white;
+      width: 3rem;
+      display: inline-block;
+      height: 0.1rem;
+      transition: all 0.2s;
+      &::before,
+      &::after {
+        transition: all 0.2s;
+        content: "";
+        background-color: $color--white;
+        display: inline-block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform-origin: center;
+      }
+      &::after {
+        left: 0;
+        top: 0.8rem;
+      }
+
+      &::before {
+        left: 0;
+        top: -0.8rem;
+      }
+    }
+  }
+}
+// class for reaction
+.rotade-after {
+  & span::after {
+    transform: rotate(-135deg);
+    top: 0;
+  }
+}
+.rotade-before {
+  & span::before {
+    transform: rotate(135deg);
+    top: 0;
+  }
+}
+.remove-span {
+  & span {
+    background-color: transparent;
   }
 }
