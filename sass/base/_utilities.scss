@@ -136,11 +136,18 @@
 .background-gray-main {
   background: $color--gray-main !important;
 }
+@keyframes show {
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
 .show-sidebar {
   // display: block;
-  transition: width 0.1s 0.1s, opacity 0.1s;
+  // transition: width 0.1s 0.1s, opacity 0.1s;
+  animation: show 600ms 100ms cubic-bezier(0.38, 0.97, 0.56, 0.76) forwards;
   pointer-events: all;
-  opacity: 1;
+  // opacity: 1;
   visibility: visible;
 
   transition: all 0.5s;
@@ -169,9 +176,10 @@
 }
 
 .show-details {
-  transition: width 0.2s 0.15s, opacity 0.1s;
+  // transition: width 0.2s 0.15s, opacity 0.1s;
+  animation: show 600ms 100ms cubic-bezier(0.38, 0.97, 0.56, 0.76) forwards;
   pointer-events: all;
-  opacity: 1;
+  // opacity: 1;
   visibility: visible;
 
   display: grid;
