@@ -23,7 +23,7 @@
     right: 0;
     width: 2rem;
     height: 2rem;
-    z-index: 101;
+    z-index: 99999;
     border-radius: 50%;
     color: $color--white;
     background-color: #e1275f;
@@ -37,7 +37,7 @@
     width: 1rem;
     height: 1rem;
     border-radius: 2rem;
-    z-index: 99;
+    z-index: 99999;
     @supports (backdrop-filter: none) or (-webkit-backdrop-filter: none) {
       backdrop-filter: blur(4px);
       -webkit-backdrop-filter: blur(4px);

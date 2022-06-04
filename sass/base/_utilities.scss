@@ -137,12 +137,9 @@
   background: $color--gray-main !important;
 }
 .show-sidebar {
-  // width: 100;
-  // visibility: visible;
-  // pointer-events: all;
   position: relative;
   display: block;
-  z-index: 999;
+  z-index: 99;
   width: 30vw;
   right: 0;
   bottom: 0;
@@ -152,18 +149,31 @@
     border: none;
   }
   background-color: $color--blue-dark;
+  @include res(430) {
+    width: 40vw;
+  }
+  @include res(310) {
+    width: 60vw;
+  }
 }
 
 .show-details {
   display: grid;
   grid-template-rows: 1fr [header-start] max-content [header-end] 0.5fr [details-start] max-content [details-end] 3fr [date-start] max-content [date-end];
-  position: absolute;
-  z-index: 999;
+  position: relative;
+  z-index: 99;
   width: 30vw;
-  top: 44rem;
+  top: -41rem;
   right: 0;
   height: 50%;
   background: $color--blue-dark;
+  height: 41rem;
+  @include res(430) {
+    width: 40vw;
+  }
+  @include res(310) {
+    width: 60vw;
+  }
 }
 .blur {
   filter: blur(4px);
