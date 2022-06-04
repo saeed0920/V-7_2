@@ -129,8 +129,8 @@ mainSectionItems.addEventListener("click", function () {
     removeClass(sideBarIcon, "rotade-before");
     removeClass(sideBarIcon, "remove-span");
     removeClass(sideBar, "show-sidebar");
-    removeClass(mainSectionItems, "blur");
     removeClass(details, "show-details");
+    removeClass(mainSectionItems, "blur");
   } else {
     console.warn("not active");
   }

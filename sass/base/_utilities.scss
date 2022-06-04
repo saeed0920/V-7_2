@@ -154,6 +154,7 @@
   &:first-child {
     border: none;
   }
+  box-shadow: 0 2rem 1rem 1rem rgba(black, 0.2);
   & * {
     color: $color--white;
     border: none;
@@ -169,6 +170,7 @@
 }
 
 .show-details {
+  box-shadow: unset;
   grid-row: 2 / 3;
   grid-column: 1 / 2;
   align-self: flex-end;
@@ -188,6 +190,13 @@
     width: 60vw;
   }
 }
-.blur {
+
+.overlay {
+  display: none;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backdrop-filter: blur(4px);
   filter: blur(4px);
+  z-index: 20;
 }

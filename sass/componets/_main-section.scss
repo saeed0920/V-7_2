@@ -185,7 +185,7 @@
     }
   }
 
-  span {
+  span:not(:first-of-type) {
     grid-row: 2 / -1;
     grid-column: 1 / -1;
     @include res(800) {

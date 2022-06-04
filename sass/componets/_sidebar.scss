@@ -8,12 +8,14 @@
     align-items: center;
     justify-content: space-evenly;
   }
+
   @include res(800) {
     transform: rotateX(-90deg);
     pointer-events: none;
     opacity: 0;
     visibility: hidden;
   }
+
   display: grid;
   grid-template-rows: 1fr [header-start] max-content [header-end] 0.5fr [details-start] max-content [details-end] 3fr [date-start] max-content [date-end];
   background-image: linear-gradient(

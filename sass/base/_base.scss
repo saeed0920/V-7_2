@@ -54,14 +54,14 @@ body {
   direction: rtl;
   font-family: sans-serif;
   min-height: 100vh;
-  @include res(800) {
-    height: 100vh;
-  }
   display: grid;
   grid-template-rows: 15rem 3fr;
   grid-template-columns: 1fr 7fr;
+  @include res(800) {
+    grid-auto-rows: 1rem;
+  }
   @include res(360) {
-    grid-template-rows: 18rem 3fr;
+    grid-template-rows: 20rem 3fr;
   }
 }
 

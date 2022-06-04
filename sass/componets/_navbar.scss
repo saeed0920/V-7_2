@@ -84,7 +84,6 @@
 // icon-sidebar if max-width 800px
 .icon-sidebar {
   display: none;
-
   @include res(800) {
     width: 4rem;
     height: 4rem;
@@ -94,7 +93,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    box-shadow: 0 2rem 2rem rgba(black, 0.1);
+    box-shadow: 0 1rem 1rem rgba(black, 0.1);
     background-color: $color--blue-main;
   }
   span {
