@@ -4,6 +4,7 @@
   height: 5rem;
   bottom: 6rem;
   right: 27rem;
+
   grid-row: 2 / 3;
   grid-column: 2 /3;
   align-self: end;
@@ -13,6 +14,10 @@
     bottom: 2rem;
     right: 2rem;
     transform: translateX(0rem);
+  }
+  @include res(800) {
+    right: unset;
+    left: 2rem;
   }
   &::after {
     content: "1";
@@ -37,7 +42,11 @@
     width: 1rem;
     height: 1rem;
     border-radius: 2rem;
-    z-index: 99999;
+    @include res(800) {
+      right: unset;
+      left: 50%;
+    }
+    z-index: 99;
     @supports (backdrop-filter: none) or (-webkit-backdrop-filter: none) {
       backdrop-filter: blur(4px);
       -webkit-backdrop-filter: blur(4px);

@@ -235,7 +235,11 @@ body {
       justify-content: space-evenly; } }
   @media only screen and (max-width: 50em) {
     .sidebar {
-      display: none; } }
+      pointer-events: none;
+      opacity: 0;
+      visibility: hidden;
+      width: 0;
+      transition: all 0.2s; } }
   .sidebar__header {
     display: flex;
     flex-direction: column;
@@ -346,7 +350,11 @@ body {
     margin-top: 2rem; }
     @media only screen and (max-width: 50em) {
       .main-section__sidebar {
-        display: none; } }
+        pointer-events: none;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.2s;
+        width: 0; } }
     .main-section__sidebar--selector {
       text-align: right;
       width: 90%;
@@ -481,6 +489,10 @@ body {
       bottom: 2rem;
       right: 2rem;
       transform: translateX(0rem); } }
+  @media only screen and (max-width: 50em) {
+    .chat {
+      right: unset;
+      left: 2rem; } }
   .chat::after {
     content: "1";
     display: grid;
@@ -501,7 +513,7 @@ body {
     width: 1rem;
     height: 1rem;
     border-radius: 2rem;
-    z-index: 99999;
+    z-index: 99;
     background: linear-gradient(to left, rgba(28, 146, 210, 0.7), rgba(242, 252, 254, 0.5));
     transition: all 0.2s ease-out;
     backface-visibility: hidden;
@@ -509,6 +521,10 @@ body {
     display: grid;
     grid-template-columns: 2fr 1fr 2fr;
     grid-template-rows: repeat(4, 1fr); }
+    @media only screen and (max-width: 50em) {
+      .chat__background {
+        right: unset;
+        left: 50%; } }
     @supports (backdrop-filter: none) or (-webkit-backdrop-filter: none) {
       .chat__background {
         backdrop-filter: blur(4px);
@@ -729,17 +745,25 @@ body {
   background: var(--gray-main) !important; }
 
 .show-sidebar {
+  transition: width 0.1s 0.1s, opacity 0.1s;
+  pointer-events: all;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.5s;
   position: relative;
-  display: block;
   z-index: 99;
   width: 30vw;
   right: 0;
   bottom: 0;
   height: max-content;
   top: -2rem;
-  background-color: var(--blue-dark); }
+  background: linear-gradient(to right, #36d1dc, #5b86e5); }
   .show-sidebar:first-child {
     border: none; }
+  .show-sidebar * {
+    color: var(--white);
+    border: none;
+    text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.45); }
   @media only screen and (max-width: 26.875em) {
     .show-sidebar {
       width: 40vw; } }
@@ -748,6 +772,10 @@ body {
       width: 60vw; } }
 
 .show-details {
+  transition: width 0.2s 0.15s, opacity 0.1s;
+  pointer-events: all;
+  opacity: 1;
+  visibility: visible;
   display: grid;
   grid-template-rows: 1fr [header-start] max-content [header-end] 0.5fr [details-start] max-content [details-end] 3fr [date-start] max-content [date-end];
   position: relative;
@@ -756,7 +784,7 @@ body {
   top: -41rem;
   right: 0;
   height: 50%;
-  background: var(--blue-dark);
+  background: linear-gradient(to right, #36d1dc, #5b86e5);
   height: 41rem; }
   @media only screen and (max-width: 26.875em) {
     .show-details {
