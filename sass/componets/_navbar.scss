@@ -1,6 +1,13 @@
 .navbar {
   grid-row: 1 / 2;
   grid-column: 2 / 3;
+  @include res(1100) {
+    grid-column: 1 / -1;
+  }
+  @include res(800) {
+    flex-direction: column;
+    padding: 1rem;
+  }
   border-bottom: 1px solid $color--gray-text;
 
   box-shadow: 0 2rem 2rem rgba($color--black, 0.1); //!!!! fix color
@@ -14,21 +21,35 @@
     align-items: center;
     justify-content: space-between;
     justify-self: flex-start;
+    @include res(360) {
+      flex-direction: column;
+      padding-top: 2rem;
+    }
   }
   &__img {
     border-radius: 50%;
     width: 8rem;
     height: 8rem;
+    @include res(430) {
+      width: 6rem;
+      height: 6rem;
+    }
   }
   &__header-1 {
     margin-right: 3rem;
     font-size: 3rem;
     font-family: $font--header;
+    @include res(1650) {
+      margin-right: 1rem;
+    }
   }
   &__header-2 {
     font-size: 2rem;
     font-family: $font-nastaliq-2;
     color: $color--blue-main;
+    @include res(1450) {
+      display: none;
+    }
   }
   &__icon-box {
     width: 27%;
@@ -36,6 +57,16 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @include res(800) {
+      width: 80%;
+      padding: 1rem;
+    }
+    @include res(360) {
+      width: 100%;
+      padding-bottom: 4rem;
+    }
+
     &__icon {
       width: 3rem;
       height: 3rem;

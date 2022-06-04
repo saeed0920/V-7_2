@@ -53,24 +53,23 @@
 }
 .u-margin-top-med {
   margin-top: 3rem !important;
-  @include res(tab-small) {
-    margin-top: 2rem !important;
-  }
+
+  margin-top: 2rem !important;
 }
+
 .u-margin-top-2rem {
   margin-top: 2rem !important;
 }
 .u-margin-top-big {
   margin-top: 5rem !important;
-  @include res(tab-small) {
-    margin-top: 3rem !important;
-  }
+
+  margin-top: 3rem !important;
 }
+
 .u-margin-top-hige {
   margin-top: 7rem !important;
-  @include res(tab-small) {
-    margin-top: 5rem !important;
-  }
+
+  margin-top: 5rem !important;
 }
 
 .u-font-size-2rem {
@@ -116,6 +115,10 @@
   box-shadow: 0 1rem 0.5rem rgba(black, 0.15);
   transform: scale(1) translatex(-1rem) !important;
   text-shadow: 0 0.5rem 1rem rgba(black, 0.3);
+  @include res(500) {
+    box-shadow: 0 0.7rem 0.5rem rgba(black, 0.15);
+    transform: scale(1) translatex(0) !important;
+  }
 }
 .fix-sidebar {
   background-color: $color--gray-main !important;

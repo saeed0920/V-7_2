@@ -1,6 +1,15 @@
 .main-section {
   grid-row: 2 / -1;
   grid-column: 2 / 3;
+  @include res(1100) {
+    grid-row: 2 / 3;
+    grid-column: 1 / -1;
+    grid-template-rows: 1fr 3rem;
+  }
+  @include res(500) {
+    display: flex;
+    flex-direction: column;
+  }
   display: grid;
   grid-template-columns: 20rem 1fr;
   grid-template-rows: 1fr 5rem;
@@ -12,6 +21,12 @@
     align-items: center;
     justify-content: flex-start;
     margin-top: 2rem;
+    @include res(500) {
+      flex-direction: row;
+      margin-top: 0;
+      box-shadow: 0 1rem 1rem rgba(black, 0.15);
+      z-index: 99;
+    }
 
     &--selector {
       text-align: right;
@@ -25,6 +40,11 @@
       transition: all 0.2s;
       position: relative;
       z-index: 100;
+
+      @include res(360) {
+        padding: 1rem;
+      }
+
       &::before {
         border-radius: 2px;
         content: "";
@@ -38,10 +58,16 @@
         transform: scaley(0);
         transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
           background-color 0.1s;
+        @include res(500) {
+          display: none;
+        }
       }
       &:hover {
         transform: scalex(1.1) translateX(-2rem);
         color: $color--white;
+        @include res(500) {
+          transform: scalex(1) translateX(0);
+        }
 
         &::before {
           transform: scaley(1);
@@ -52,6 +78,10 @@
       &:focus {
         transform: translateX(-1.5rem);
         box-shadow: 0 0.5rem 1rem rgba(black, 0.25);
+        @include res(500) {
+          transform: translateX(0);
+          box-shadow: 0 0.5rem 0rem rgba(black, 0.25);
+        }
       }
     }
     &:first-child {
@@ -68,7 +98,14 @@
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
     grid-auto-rows: 20rem;
     grid-gap: 2.5rem;
-
+    // @include res(500) {
+    //   overflow-y: auto;
+    //   height: auto;
+    // }
+    @include res(310) {
+      overflow-y: auto;
+      height: auto;
+    }
     overflow-y: scroll;
     height: 70rem;
     // * containers
@@ -157,5 +194,8 @@
   span {
     grid-row: 2 / -1;
     grid-column: 1 / -1;
+    @include res(500) {
+      display: none;
+    }
   }
 }

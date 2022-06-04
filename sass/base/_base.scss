@@ -28,6 +28,25 @@
 
 html {
   font-size: 62.5%;
+  @include res(1650) {
+    font-size: 58%;
+  }
+  @include res(800) {
+    font-size: 55%;
+  }
+  @include res(750) {
+    font-size: 52%;
+  }
+  @include res(500) {
+    font-size: 48%;
+  }
+  @include res(430) {
+    font-size: 43%;
+  }
+  @include res(310) {
+    font-size: 36%;
+  }
+
   box-sizing: border-box;
 }
 
@@ -39,6 +58,9 @@ body {
   display: grid;
   grid-template-rows: 15rem 3fr;
   grid-template-columns: 1fr 7fr;
+  @include res(360) {
+    grid-template-rows: 18rem 3fr;
+  }
 }
 
 ::selection {

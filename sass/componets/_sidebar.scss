@@ -1,7 +1,13 @@
 .sidebar {
   grid-row: 1 / -1;
   grid-column: 1 / 2;
-
+  @include res(1100) {
+    grid-row: 3 / 4;
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
   display: grid;
   grid-template-rows: 1fr [header-start] max-content [header-end] 0.5fr [details-start] max-content [details-end] 3fr [date-start] max-content [date-end];
   background-image: linear-gradient(
@@ -14,12 +20,17 @@
   box-shadow: 0 2rem 1rem 1rem rgba(black, 0.2); //!!!!
   background-size: cover;
   background-position: left;
+  padding: 1rem;
   &__header {
+    @include res(1100) {
+      display: none;
+    }
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     grid-row: header-start / header-end;
+    text-align: center;
     &-img {
       width: 5rem;
       height: 5rem;
@@ -44,6 +55,20 @@
   }
   &__details {
     grid-row: details-start / details-end;
+    @include res(1100) {
+      flex-direction: row;
+      width: 30%;
+      justify-content: space-around;
+    }
+    @include res(750) {
+      width: 42%;
+    }
+    @include res(500) {
+      width: 50%;
+    }
+    @include res(360) {
+      width: 55%;
+    }
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -52,6 +77,11 @@
       width: 8rem;
       border-radius: 50%;
       border: 2px solid $color--white;
+      @include res(360) {
+        border: 1px solid $color--white;
+        width: 5rem;
+        height: 5rem;
+      }
     }
     &-textbox {
       font-size: 1.5rem;
@@ -67,6 +97,7 @@
   }
   &__date {
     grid-row: date-start / date-end;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -85,6 +116,9 @@
     &-p {
     }
     &-box {
+      @include res(1100) {
+        display: none;
+      }
       display: flex;
       justify-content: space-between;
 

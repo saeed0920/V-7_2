@@ -89,17 +89,6 @@ for (let i = 1; i <= 4; i++) {
   });
 }
 
-// // if user click chat icon
-// chatIcon.addEventListener("click", function () {
-//   for (let i = 1; i <= sets.size; i++) {
-//     removeClass(selectors[i], "selector-active");
-//     for (const x of containers[i]) addClass(x, "hide");
-//   }
-//   addClass(itemsFix, "hide");
-//   for (const items of itemsNotActive) addClass(items, "hide");
-//   addClass(document.querySelector(".main-section__sidebar"), "fix-sidebar");
-//   addClass(document.querySelector(".main-section"), "background-gray-main");
-// });
 // if user click home icon
 homeIcon.addEventListener("click", function () {
   removeClass(itemsFix, "hide");
