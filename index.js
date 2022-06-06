@@ -27,8 +27,17 @@ const containers = {
     }
   },
 };
-selectors.made(4);
-containers.made(4);
+
+const arr2 = [0];
+for (const x of selectElementAll(".main-section__sidebar--selector")) {
+  arr2.push(x);
+}
+console.log(arr2.length - 1); // number of how many selector in html
+
+const sum = arr2.length - 1;
+selectors.made(sum);
+containers.made(sum);
+console.log(selectors);
 
 const itemsNotActive = selectElementAll(".container--not-active");
 const itemsFix = selectElement(".container--fix");
@@ -68,7 +77,7 @@ const getOut = function () {
 //setup default
 const sets = new Set();
 for (const [x, items] of Object.entries(selectors)) {
-  // of containers
+  //or of containers
   sets.add(x);
 }
 sets.delete("made");
@@ -90,7 +99,7 @@ setup();
 //
 
 // if user click selector
-for (let i = 1; i <= 4; i++) {
+for (let i = 1; i <= sets.size; i++) {
   selectors[i].addEventListener("click", function () {
     sets.delete(`${i}`);
     //
