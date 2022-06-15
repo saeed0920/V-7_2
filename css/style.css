@@ -409,18 +409,10 @@ body {
     padding: 3rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-    grid-template-rows: 10rem;
     grid-auto-rows: 20rem;
     grid-gap: 2.5rem;
     overflow-y: scroll;
     height: 70rem; }
-    .main-section__items--sidebar-2-items {
-      grid-row: 1 / 2;
-      grid-column: 1 / -1; }
-      .main-section__items--sidebar-2-items .test-sidebar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between; }
     @media only screen and (max-width: 50em) {
       .main-section__items {
         grid-column: 1 / -1; } }
@@ -483,7 +475,7 @@ body {
   position: relative;
   width: 5rem;
   height: 5rem;
-  bottom: 6rem;
+  bottom: 2rem;
   right: 27rem;
   z-index: 101;
   grid-row: 2 / 3;
@@ -553,6 +545,10 @@ body {
         border-radius: 4rem;
         position: relative;
         transition: all 0.1s; }
+        @supports (backdrop-filter: none) or (-webkit-backdrop-filter: none) {
+          .chat__background .message__box {
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px); } }
         .chat__background .message__box::after {
           content: "۲۲:۳۰";
           position: absolute;
@@ -569,7 +565,8 @@ body {
           right: -5rem; }
     .chat__background__chatbox {
       grid-row: 4 / 5;
-      grid-column: 1 / -1; }
+      grid-column: 1 / -1;
+      display: none; }
       .chat__background__chatbox .textbox {
         display: flex;
         justify-content: center;
@@ -606,11 +603,10 @@ body {
     position: absolute;
     height: 100%;
     width: 100%;
-    transition: all 0.2s;
+    transition: all 0.1s;
     background-color: var(--blue-main);
     display: grid;
     place-items: center;
-    transition: all 0.4 ease-out;
     z-index: 100; }
     .chat__label--icon {
       fill: var(--white);
@@ -625,8 +621,10 @@ body {
     width: 35rem;
     height: 25rem;
     visibility: visible;
-    transition: all 0.3s;
+    transition: all 0.1s;
     box-shadow: 0 1rem 0.5rem rgba(0, 0, 0, 0.15); }
+  .chat-checkbox:checked ~ .chat__background .chat__background__chatbox {
+    display: unset; }
   .chat-checkbox {
     display: none; }
 

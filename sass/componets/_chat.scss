@@ -2,7 +2,7 @@
   position: relative;
   width: 5rem;
   height: 5rem;
-  bottom: 6rem;
+  bottom: 2rem;
   right: 27rem;
   z-index: 101;
   grid-row: 2 / 3;
@@ -82,10 +82,10 @@
         );
         padding: 0.5rem 4rem;
         border-radius: 4rem;
-        // @supports (backdrop-filter: none) or (-webkit-backdrop-filter: none) {
-        //   backdrop-filter: blur(4px);
-        //   -webkit-backdrop-filter: blur(4px);
-        // }
+        @supports (backdrop-filter: none) or (-webkit-backdrop-filter: none) {
+          backdrop-filter: blur(4px);
+          -webkit-backdrop-filter: blur(4px);
+        }
         position: relative;
         transition: all 0.1s;
         &::after {
@@ -109,6 +109,7 @@
     &__chatbox {
       grid-row: 4 / 5;
       grid-column: 1 / -1;
+      display: none;
 
       .textbox {
         display: flex;
@@ -154,11 +155,10 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    transition: all 0.2s;
+    transition: all 0.1s;
     background-color: $color--blue-main;
     display: grid;
     place-items: center;
-    transition: all 0.4 ease-out;
     z-index: 100;
     &--icon {
       fill: $color--white;
@@ -179,8 +179,12 @@
     width: 35rem;
     height: 25rem;
     visibility: visible;
-    transition: all 0.3s;
+    transition: all 0.1s;
     box-shadow: 0 1rem 0.5rem rgba(black, 0.15);
+  }
+
+  &-checkbox:checked ~ &__background .chat__background__chatbox {
+    display: unset;
   }
   &-checkbox {
     display: none;
